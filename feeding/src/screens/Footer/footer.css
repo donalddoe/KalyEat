@@ -1,0 +1,10 @@
+.footer{
+    /* background-position: 200px -200px; */
+    /* position: absolute; */
+    overflow: hidden;
+     position: relative;
+    background: #C4C4C4;
+    color: #FFF;
+     text-align: center;
+     overflow: hidden;
+}

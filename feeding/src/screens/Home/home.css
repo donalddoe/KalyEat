@@ -1,0 +1,62 @@
+body{
+    font-family: 'Raleway', sans-serif;
+}
+
+h1{
+    font-size: 45px;
+    font-weight: 700;
+    text-transform: capitalize;
+    color: #69A41A;
+    justify-content: center;
+}
+
+p{
+    font-size: 15px;
+    margin: 20px 0 25px;
+    color: #202020;
+    letter-spacing: 0px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.theme-btn{
+    border-radius: 100px;
+    background: #F4A927;
+    padding: 15px 30px;
+    min-width: 5px;
+    border: 1px solid #F4A927;
+    color: white;
+    font-size: 13px;
+    text-transform: capitalize;
+    margin-top: 13px;
+    display: inline-block;
+    text-align: center;
+    margin-right: 12px;
+    transition: all 0.5s ease-in;
+    cursor: pointer;
+}
+
+.theme-btn:hover{
+    text-decoration: none;
+    background-color: #F4A927;
+    color: #333;
+}
+
+
+h3{
+    font-size: 45px;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: #F4A927;
+    text-align: center;
+}
+
+h4{
+    font-size: 15px;
+    margin: 20px 0 25px;
+    color: #202020;
+    letter-spacing: 0px;
+    font-weight: 400;
+    text-transform: capitalize; 
+    text-align: center;
+}
