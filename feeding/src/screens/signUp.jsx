@@ -3,7 +3,9 @@ import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure()
 const SignUp = () => {
   const [formData, setFormData] = useState({
       firstname:'',
@@ -69,7 +71,6 @@ const SignUp = () => {
             <form
             className='min-w-full flex-10 mt-8 text-indigo-500'
             onSubmit={handleSubmit}>
-           <ToastContainer />
             <div  className='mx-auto max-w-xl min-w-full'>
             <input
                   className='w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white'

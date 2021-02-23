@@ -7,10 +7,14 @@ function NavBar() {
     return (
         <>
            <div className="Vector">
-           {/* <img src="Vector1.png"></img> */}
            <nav>
-              <div className="logo">
-                 KalyEat
+           <div className='text-center'>
+                <h3 className='green-text mb-5 mt-4 font-weight-light'>
+                  <strong>KALY</strong>
+                  <a href='#!' className='orange-text font-weight-light'>
+                    <strong>EAT</strong>
+                  </a>
+                </h3>
               </div>
               <ul className="nav-links" style={{transform: open ?"translateX(0px)" : ""}}>
                   <li><a href="#">Home</a></li>

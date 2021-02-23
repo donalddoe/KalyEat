@@ -11,7 +11,8 @@ module.exports = function(passport) {
                  if(!user) {
                      return done(null,false,{message : 'Username doesn\'t exist'});
                  }
-                 if (user)
+                 if (user) 
+                 console.log(user)
                  bcrypt.compare(password,user.password,(err,isMatch)=>{
                      if(err) throw err;
 

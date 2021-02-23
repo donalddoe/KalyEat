@@ -48,44 +48,23 @@ nav{
 
 .btn{
     border-radius: 5px;
-    line-height: 23px;
-    border: 2px solid #F4A927;
+    line-height: 10px;
+    border: 1px solid #F4A927;
     background-color: #F4A927;
     color: #F8F8F8;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 10px;
+    font-weight: 500;
     cursor: pointer;
     display: flex;
 
 
 }
 
-ul{
-    
-  position: -webkit-sticky; /* Safari */
- position: sticky;
- top: 0;
-      
-}
-
-
-nav .logo{
-    font-size: 30px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #F4A927;
-}
-
- /* .logo:last-of-type {
-    color: #69A41A;
-} */
-
 nav .nav-links{
     /* text-align: right; */
     display: flex;
     justify-content: space-around;
     width: 35%;
-    float: right;
 }
 
 nav .nav-links a {
@@ -94,7 +73,7 @@ nav .nav-links a {
     color: #69A41A;
     cursor: pointer;
     justify-content: space-between;
-    float: right;
+    
 }
 
 li .carts{

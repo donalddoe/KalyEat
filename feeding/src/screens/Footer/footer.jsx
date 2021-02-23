@@ -46,7 +46,7 @@ const footer = () => {
                 </p>
               </MDBCol>
               <hr className="w-100 clearfix d-md-none" />
-              <MDBCol md="4" lg="3" xl="3" className="mx-auto mt-3">
+              <MDBCol  md="3" lg="2" xl="2" className="mx-auto mt-3">
                 <h6 className="text-uppercase mb-4 font-weight-bold">Contact Us</h6>
                 <p>
                   <i className="fa fa-phone mr-3" /> +233 24 0000 000

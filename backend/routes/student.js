@@ -7,8 +7,9 @@ const student = require('../models/Student')
 
 
 //Login Method
-router.post('/login', (req, res, next) => {
-    passport.authenticate('local', res.send("Logged in"))(req,res,next);
+router.post('/login', async (req, res, next) => {
+    // console.log(req.body)
+    passport.authenticate('local', res.send("Logged in"));
   });
 
 

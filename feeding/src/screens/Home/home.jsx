@@ -10,7 +10,12 @@ const home = () => {
         <div>
            <NavBar /> 
            <div style={{marginTop: "150px", marginLeft: "100px"}}>
-            <h1>The Healthy Food For <br></br> Strong Kids</h1>
+            <h1 className='green-text mb-5 mt-4 font-weight-bold'>
+            <strong>The Healthy Food For</strong> <br></br>
+            <a href='#!' className='orange-text font-weight-bold'>
+                    <strong>Strong Kids</strong>
+                  </a>
+            </h1>
             <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
             sed do eiusmod tempor incididunt<br></br>
