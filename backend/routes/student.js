@@ -2,14 +2,28 @@
 const express = require('express')
 const router = express.Router()
 const bycrpt = require('bcrypt')
-const passport = require("passport")
 const student = require('../models/Student')
 
 
 //Login Method
 router.post('/login', async (req, res, next) => {
-    // console.log(req.body)
-    passport.authenticate('local', res.send("Logged in"));
+   
+    const result = await student.find(student => student.username == req.body.username);
+    if (result) {
+        if (result.password == securePassword) {
+            res.status(200).send({
+                message: "Successfully Logged in"
+            })
+        } else {
+            res.status(200).send( {
+                message: "Password incorrect"
+            })
+        }
+    }else {
+        res.status(200).send( {
+            message: "User not found"
+        })
+    }
   });
 
 

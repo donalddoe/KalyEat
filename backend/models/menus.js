@@ -29,7 +29,7 @@ const menuSchema = new Schema({
 
     userId: {
         type: Schema.Types.ObjectId,
-        ref: 'User',
+        ref: 'student',
         required: false
     }
     
