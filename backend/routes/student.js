@@ -1,52 +1,75 @@
-
 const express = require('express')
 const router = express.Router()
-const bycrpt = require('bcrypt')
+const bcrypt = require('bcrypt')
 const student = require('../models/Student')
+const Student = require('../models/Student')
 
+//Get sign up page
+router.get("/signup", (req,res) => {
+    res.send("Sign up here")
+})
 
-//Login Method
-router.post('/login', async (req, res, next) => {
-   
-    const result = await student.find(student => student.username == req.body.username);
-    if (result) {
-        if (result.password == securePassword) {
-            res.status(200).send({
-                message: "Successfully Logged in"
-            })
-        } else {
-            res.status(200).send( {
-                message: "Password incorrect"
-            })
-        }
-    }else {
-        res.status(200).send( {
-            message: "User not found"
-        })
+//Post sign up method
+router.post('/signup',  (req, res, next) =>{
+    const { firstname, lastname, username, password, password2, age} = req.body;
+    let errors = [];
+
+    // making sure all input fields are filled
+    if(!firstname || !lastname || !username || !password || !password2 || !age){
+        errors.push({ msg: "Please fill in all fields" });
+        res.send({ msg: "Please fill in all fields" });
+    } 
+    // making sure passwords match
+    if (password !== password2) {
+        errors.push({ msg: "Passwords do not match" });
     }
-  });
+    // password length should more than 6
+    if (password.length < 6) {
+        errors.push({ msg: "Password must be at least 6 characters" });
+    }
+    //making sure there are no errors
+    if (errors.length > 0) {
+        res.send(errors);
+    }
+    else {
+        //
+        Student.findOne({ username: username }).exec((err, student) => {
+            if(student)
+            {
+                errors.push({ msg: "Username already registered" });
+                res.send({ msg: "Username already registered" });
+            }
+            else {
+                const newStudent = new Student({
+                    firstname: firstname,
+                    lastname: lastname,
+                    username: username,
+                    password: password,
+                    role: "student",
+                    age: age
+                });
 
-
-//Post method
-router.post('/signup', async (req, res) =>{
-    const saltPassword = await bycrpt.genSalt(10)
-    const securePassword = await bycrpt.hash(req.body.password, saltPassword)
-    const studentUser = new student ({
-        firstname:req.body.firstname,
-        lastname:req.body.lastname,
-        username:req.body.username,
-        password:securePassword,
-        age:req.body.age
-    })
-    studentUser.save()
-    .then(data => {
-        res.json(data)
-    })
-    .catch(error =>{
-        res.json(error) 
-    })
+                bcrypt.genSalt(10, (err, salt) =>
+                    bcrypt.hash(newStudent.password, salt, (err, hash) => {
+                    if (err) throw err;
+                    //save pass to hash
+                    newStudent.password = hash;
+                    //save user
+                    newStudent
+                        .save()
+                        .then((value) => {
+                        
+                        res.send("Student Created");
+                        })
+                        .catch((value) => console.log(value));
+                    }) 
+                
+                )
+            }
+        });
+    }
 })
 
 
 
-module.exports = router
+module.exports = router;

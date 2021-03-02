@@ -1,0 +1,9 @@
+
+POST http://localhost:4000/student/signin 
+
+Content-Type: application/json
+
+{
+    "username": "Ko",
+    "password": "donndo"
+}

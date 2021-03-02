@@ -24,7 +24,7 @@ const SignUp = () => {
     e.preventDefault();
     if (firstname && lastname && username && password && age) {
       setFormData({...formData, textChange:'Submitting'});
-      axios.post(`${process.env.REACT_APP_API_URL}/signup`, {
+      axios.post(`${process.env.REACT_APP_API_URL}/student/signup`, {
         firstname,
         lastname,
         username,

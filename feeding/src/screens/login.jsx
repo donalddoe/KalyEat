@@ -24,7 +24,7 @@ const Login = () => {
     e.preventDefault();
     if (username && password ) {
       setFormData({...formData, textChange:'Submitting'});
-      axios.post(`${process.env.REACT_APP_API_URL}/login`, {
+      axios.post(`${process.env.REACT_APP_API_URL}/users/signin`, {
         username,
         password,
     
@@ -86,7 +86,7 @@ const Login = () => {
                   type='submit'
                   className='mt-5 tracking-wide font-semibold bg-orange-500 text-gray-100 w-full py-4 rounded-lg hover:bg-orange-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none'
                 >
-                  <i className='fas fa-login fa 1x w-6  -ml-2' />
+                  <i className='fas fa-sign-in-alt fa 1x w-6  -ml-2' />
                   <span className='ml-3'>{textChange}</span>
                 </button>
             </div>

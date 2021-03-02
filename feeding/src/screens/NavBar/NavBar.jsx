@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './NavBar.css';
-// import wave from './assets/'
+
 
 function NavBar() {
     const [open, setOpen] = useState(false);
@@ -8,10 +8,10 @@ function NavBar() {
         <>
            <div className="Vector">
            <nav>
-           <div className='text-center'>
-                <h3 className='green-text mb-5 mt-4 font-weight-light'>
+            <div className="text-left">
+                <h3 className='green-text mb-2 mt-4 font-weight-bold'>
                   <strong>KALY</strong>
-                  <a href='#!' className='orange-text font-weight-light'>
+                  <a href='#!' className='orange-text font-weight-bold'>
                     <strong>EAT</strong>
                   </a>
                 </h3>
@@ -29,10 +29,6 @@ function NavBar() {
            <div className="shape">
             </div>
            </div>
-         
-          
-          
-            
            </>
         
     )
