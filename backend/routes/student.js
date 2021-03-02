@@ -1,8 +1,9 @@
-const express = require('express')
-const router = express.Router()
-const bcrypt = require('bcrypt')
-const student = require('../models/Student')
-const Student = require('../models/Student')
+const express = require('express');
+const router = express.Router();
+const bcrypt = require('bcrypt');
+// const student = require('../models/Student');
+const Student = require('../models/Student');
+// app.use(express.json());
 
 //Get sign up page
 router.get("/signup", (req,res) => {
@@ -13,6 +14,9 @@ router.get("/signup", (req,res) => {
 router.post('/signup',  (req, res, next) =>{
     const { firstname, lastname, username, password, password2, age} = req.body;
     let errors = [];
+    console.log(req.body)
+
+
 
     // making sure all input fields are filled
     if(!firstname || !lastname || !username || !password || !password2 || !age){
@@ -73,3 +77,4 @@ router.post('/signup',  (req, res, next) =>{
 
 
 module.exports = router;
+

@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
-
 import 'react-toastify/dist/ReactToastify.css';
+// import { response } from 'express';
 
 toast.configure()
 const SignUp = () => {
@@ -12,23 +12,25 @@ const SignUp = () => {
       lastname:'',
       username:'',
       password:'',
+      password2: '',
       age:'',
     textChange: 'Register'
   });
-  const { firstname, lastname, username, password, age, textChange } = formData;
+  const { firstname, lastname, username, password, password2, age, textChange } = formData;
   const handleChange = text => e => {
     setFormData({...formData, [text]: e.target.value})
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (firstname && lastname && username && password && age) {
+    if (firstname && lastname && username && password, password2 && age) {
       setFormData({...formData, textChange:'Submitting'});
       axios.post(`${process.env.REACT_APP_API_URL}/student/signup`, {
         firstname,
         lastname,
         username,
         password,
+        password2,
         age 
       })
       .then(response => {
@@ -38,6 +40,7 @@ const SignUp = () => {
           lastname:'',
           username:'',
           password:'',
+          password2,
           age:'',
           textChange: 'Submitted',
         });
@@ -51,6 +54,7 @@ const SignUp = () => {
           lastname:'',
           username:'',
           password:'',
+          password2:'',
           age:'',
        textChange: 'Register'
         });
@@ -59,6 +63,8 @@ const SignUp = () => {
       });
     }
   }
+   
+  
    
   return (
     <div className='min-h-full bg-gray-100 text-gray-900 flex justify-center'>
@@ -79,6 +85,7 @@ const SignUp = () => {
                   onChange={handleChange('firstname')}
                   value={firstname}
                   required
+                  // id='firstname'
                 />
                  <input
                   className='w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-3'
@@ -87,6 +94,7 @@ const SignUp = () => {
                   onChange={handleChange('lastname')}
                   value={lastname}
                   required
+                  // id='lastname'
                 />
                  <input
                   className='w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-3'
@@ -95,6 +103,7 @@ const SignUp = () => {
                   onChange={handleChange('username')}
                   value={username}
                   required
+                  // id='username'
                 />
                  <input
                   className='w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-3'
@@ -103,6 +112,16 @@ const SignUp = () => {
                   onChange={handleChange('password')}
                   value={password}
                   required
+                  // id='password'
+                />
+                   <input
+                  className='w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-3'
+                  type='password'
+                  placeholder='Confirm Password'
+                  onChange={handleChange('password2')}
+                  value={password2}
+                  required
+                  // id='password2'
                 />
                  <input
                   className='w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-3'
@@ -111,6 +130,7 @@ const SignUp = () => {
                   onChange={handleChange('age')}
                   value={age}
                   required
+                  // id='age'
                 />
                 <button
                   type='submit'
