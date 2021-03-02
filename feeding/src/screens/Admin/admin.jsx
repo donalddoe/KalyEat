@@ -4,10 +4,10 @@ import restProvider from 'ra-data-simple-rest'
 import StudentList from './StudentList'
 
 
-function Admin() {
-    return <Admin dataProvider={restProvider(`${process.env.REACT_APP_API_URL}`)}>
-        <Resource name='students' List={StudentList} />
+function Administrator() {
+    return <Admin dataProvider={restProvider('http://localhost:3000')}>
+        <Resource name='posts' List={StudentList} />
     </Admin>
 }
 
-export default Admin
+export default Administrator
